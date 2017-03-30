@@ -2,7 +2,64 @@
  * User: mario.krstic
  * Date: 29.03.2017
  */
+body{
+    background-color: royalblue;
+}
 
 h1{
-    color: red;
+    text-align: center;
+    font-weight: bold;
+}
+
+h4{
+    text-align: center;
+}
+
+/*header.php | Logo in der Navigationsleiste*/
+#nav-logo{
+    height: 20px;
+}
+
+/*order-sheet.php | Abrunden der Kanten des Well's sowie dessen Hintergrundfarbe*/
+.well{
+    /*background-color:;*/
+    border:none;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+/*order-sheet.php | Richtige Zentrierung der Wall's in der Zeile bei Responsivität */
+.row-div{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+/*order-sheet.php | Richtige Zentrierung der Formulars Responsivität */
+.form-well{
+    width: auto;
+}
+
+/*order-sheet.php | Stylen des Formulars
+#bearbeiter{
+    width: 173px;
+}
+
+#zust-int{
+    width: 173px;
+}
+
+#kunde{
+    width: 350px;
+}*/
+
+.buttons-form{
+    display: flex;
+    justify-content: center;
+}
+
+.form-submit{
+    margin-right: 5px;
 }
