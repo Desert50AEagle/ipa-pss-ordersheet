@@ -87,6 +87,43 @@ h4{
     #vierenschutz{
         width: 141px;
     }
+
+    #textarea-geraetepruefung{
+        margin-left: 79px;
+        width: 376px;
+    }
+
+    #case-id{
+        margin-left: 43px;
+        width: 187px;
+    }
+
+    #termin-techniker{
+        width: 187px;
+    }
+
+    #textarea-entsorgung-altgeraet{
+        margin-left: 20px;
+        width: 376px;
+    }
+
+    .arbeiten-checkboxen{
+        text-align: center;
+    }
+
+    .checkbox-reihe-signierung{
+        margin-right: 20px;
+    }
+
+    #signatur-bearbeiter{
+        margin-left: 20px;
+        margin-right: 42px;
+        width: 141px;
+    }
+
+    #textarea-signatur{
+        width: 376px;
+    }
 }
 
 
