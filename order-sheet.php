@@ -47,7 +47,7 @@
                         <div class="row">
                             <div class="row-div">
                                 <!--Fieldset-Information-->
-                                <fieldset>
+                                <fieldset class="fieldset">
                                     <legend>Information</legend>
                                     <div class="form-group">
                                         <label class="sr-only" for="order">Order</label>
@@ -87,7 +87,7 @@
                                     </div><!--/.col-md-8-->
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="sr-only" for="material">Passwort</label>
+                                            <label class="sr-only" for="material">Materiel</label>
                                             <input type="text" class="form-control" id="material" placeholder="Material">
                                         </div><br><br>
                                         <div class="form-group">
@@ -105,7 +105,7 @@
                         <div class="row">
                             <div class="row-div">
                                 <!--Fieldset-TO DO-->
-                                <fieldset>
+                                <fieldset class="fieldset">
                                     <legend>TO DO</legend>
                                     <div class="col-md-12">
                                         <div class="form-group">

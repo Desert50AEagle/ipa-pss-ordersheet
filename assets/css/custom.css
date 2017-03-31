@@ -42,18 +42,53 @@ h4{
     width: auto;
 }
 
-/*order-sheet.php | Stylen des Formulars
-#bearbeiter{
-    width: 173px;
+/*order-sheet.php | Stylen des Formulars*/
+@media only screen and (min-width: 760px){
+    .fieldset{
+        width: 600px;
+    }
+
+    #bearbeiter{
+        width: 173px;
+    }
+
+    #zust-int{
+        width: 173px;
+    }
+
+    #kunde{
+        width: 350px;
+    }
+
+    #betriebssystem{
+        width: 141px;
+    }
+
+    #edition-betriebsys{
+        width: 139px;
+    }
+
+    #architektur{
+        width: 139px;
+    }
+
+    #sprache{
+        width: 139px;
+    }
+
+    #office{
+        width: 141px;
+    }
+
+    #edition-office{
+        width: 139px;
+    }
+
+    #vierenschutz{
+        width: 141px;
+    }
 }
 
-#zust-int{
-    width: 173px;
-}
-
-#kunde{
-    width: 350px;
-}*/
 
 .buttons-form{
     display: flex;
