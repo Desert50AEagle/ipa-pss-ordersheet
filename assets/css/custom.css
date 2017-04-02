@@ -61,7 +61,7 @@ h4{
     }
 
     #betriebssystem{
-        width: 141px;
+        width: 143px;
     }
 
     #edition-betriebsys{
@@ -73,7 +73,7 @@ h4{
     }
 
     #sprache{
-        width: 139px;
+        width: 137px;
     }
 
     #office{
@@ -86,6 +86,26 @@ h4{
 
     #vierenschutz{
         width: 141px;
+    }
+
+    #vorh-image{
+        width: 285px;
+    }
+
+    /*Order Sheet*/
+    #textarea-datenuebernahme1{
+        height: 88px;
+        width: 266px;
+    }
+
+    /*Order Sheet Edit*/
+    #textarea-datenuebernahme2{
+        height: 108px;
+        width: 266px;
+    }
+
+    #image-erst{
+        width: 285px;
     }
 
     #textarea-geraetepruefung{

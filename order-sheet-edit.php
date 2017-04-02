@@ -56,10 +56,12 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
+                                            Termin<br>
                                             <label class="sr-only" for="termin">Termin</label>
                                             <input type="date" class="form-control" id="termin" placeholder="Termin">
                                         </div>
                                         <div class="form-group">
+                                            Bearbeiter<br>
                                             <select class="form-control col-lg-3" id="bearbeiter">
                                                 <option>Bearbeiter</option>
                                                 <option>2</option>
@@ -69,6 +71,7 @@
                                             </select>
                                         </div><br><br>
                                         <div class="form-group">
+                                            Zuständig int<br>
                                             <select class="form-control" id="zust-int">
                                                 <option>Zuständig int</option>
                                                 <option>2</option>
@@ -78,24 +81,29 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
+                                            Zuständig ext<br>
                                             <label class="sr-only" for="zust-ext">Zuständig ext</label>
                                             <input type="text" class="form-control" id="zust-ext" placeholder="Zuständig ext">
                                         </div><br><br>
                                         <div class="form-group">
+                                            Kunde<br>
                                             <label class="sr-only" for="kunde">Kunde</label>
                                             <input type="text" class="form-control" id="kunde" placeholder="Kunde">
                                         </div><br><br>
                                     </div><!--/.col-md-8-->
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="sr-only" for="material">Materiel</label>
+                                            Material<br>
+                                            <label class="sr-only" for="material">Material</label>
                                             <input type="text" class="form-control" id="material" placeholder="Material">
                                         </div><br><br>
                                         <div class="form-group">
+                                            Produktnummer<br>
                                             <label class="sr-only" for="produktnummer">Produktnummer</label>
                                             <input type="text" class="form-control" id="produktnummer" placeholder="Produktnummer">
                                         </div><br><br>
                                         <div class="form-group">
+                                            Seriennummer<br>
                                             <label class="sr-only" for="seriennummer">Seriennummer</label>
                                             <input type="text" class="form-control" id="seriennummer" placeholder="Seriennummer">
                                         </div><br><br>
@@ -107,9 +115,10 @@
                             <div class="row-div">
                                 <!--Fieldset-TO DO-->
                                 <fieldset disabled class="fieldset">
-                                    <legend>TO DO</legend>
+                                    <legend>To Do</legend>
                                     <div class="col-md-12">
                                         <div class="form-group">
+                                            Betriebssystem<br>
                                             <select class="form-control" id="betriebssystem">
                                                 <option>Betriebssystem</option>
                                                 <option>Windows</option>
@@ -119,6 +128,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
+                                            Edition<br>
                                             <select class="form-control" id="edition-betriebsys">
                                                 <option>Edition</option>
                                                 <option>Professional</option>
@@ -128,6 +138,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
+                                            Architektur<br>
                                             <select class="form-control" id="architektur">
                                                 <option>Architektur</option>
                                                 <option>32</option>
@@ -135,6 +146,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
+                                            Sprache<br>
                                             <select class="form-control" id="sprache">
                                                 <option>Sprache</option>
                                                 <option>Deutsch</option>
@@ -144,6 +156,7 @@
                                             </select>
                                         </div><br><br>
                                         <div class="form-group">
+                                            Office<br>
                                             <select class="form-control" id="office">
                                                 <option>Office</option>
                                                 <option>2</option>
@@ -153,6 +166,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
+                                            Edition<br>
                                             <select class="form-control" id="edition-office">
                                                 <option>Edition</option>
                                                 <option>2</option>
@@ -162,6 +176,7 @@
                                             </select>
                                         </div><br><br>
                                         <div class="form-group">
+                                            Vierenschutz<br>
                                             <select class="form-control" id="vierenschutz">
                                                 <option>Vierenschutz</option>
                                                 <option>Antivirus</option>
@@ -170,21 +185,28 @@
                                                 <option>5</option>
                                             </select>
                                         </div><br><br>
+                                        <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        Vorhandenes Image<br>
+                                                        <label class="sr-only" for="vorh-image">Vorhandenes Image</label>
+                                                        <input type="text" class="form-control" id="vorh-image" placeholder="Vorhandenes Image">
+                                                    </div><br><br>
+                                                    <div class="form-group">
+                                                        Image erstellen auf<br>
+                                                        <label class="sr-only" for="image-erst">Image erstellen auf</label>
+                                                        <input type="text" class="form-control" id="image-erst" placeholder="Image erstellen auf">
+                                                    </div><br><br>
+                                                </div><!--/.col-md-6-->
+                                                <div class="col-md-6">
+                                                    Datenübernahme<br>
+                                                    <textarea class="form-control textarea-datenuebernahme2" id="textarea-datenuebernahme2" rows="1" placeholder="Info"></textarea><br><br>
+                                                </div><!--/.col-md-6-->
+                                        </div><!--/.row-->
                                         <div class="form-group">
-                                            <label class="sr-only" for="datenuebernahme">Datenübernahme</label>
-                                            <input type="text" class="form-control" id="datenuebernahme" placeholder="Datenübernahme">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="vorh-image">Vorhandenes Image</label>
-                                            <input type="text" class="form-control" id="vorh-image" placeholder="Vorhandenes Image">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="image-erst">Image erstellen auf</label>
-                                            <input type="text" class="form-control" id="image-erst" placeholder="Image erstellen auf">
-                                        </div><br><br>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="zusatzauftraege">Zusatzaufträge</label>
-                                            <input type="text" class="form-control" id="zusatzauftraege" placeholder="Zusatzaufträge">
+                                            Zusatzaufträge<br>
+                                            <label class="sr-only" for="zusatzauftraege1">Zusatzaufträge</label>
+                                            <input type="text" class="form-control" id="zusatzauftraege1" placeholder="Zusatzaufträge">
                                         </div><br><br>
                                     </div><!--/.col-md-12-->
                                 </fieldset>

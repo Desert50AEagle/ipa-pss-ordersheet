@@ -106,7 +106,7 @@
                             <div class="row-div">
                                 <!--Fieldset-TO DO-->
                                 <fieldset class="fieldset">
-                                    <legend>TO DO</legend>
+                                    <legend>To Do</legend>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <select class="form-control" id="betriebssystem">
@@ -169,18 +169,21 @@
                                                 <option>5</option>
                                             </select>
                                         </div><br><br>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="datenuebernahme">Datenübernahme</label>
-                                            <input type="text" class="form-control" id="datenuebernahme" placeholder="Datenübernahme">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="vorh-image">Vorhandenes Image</label>
-                                            <input type="text" class="form-control" id="vorh-image" placeholder="Vorhandenes Image">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="image-erst">Image erstellen auf</label>
-                                            <input type="text" class="form-control" id="image-erst" placeholder="Image erstellen auf">
-                                        </div><br><br>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="vorh-image">Vorhandenes Image</label>
+                                                    <input type="text" class="form-control" id="vorh-image" placeholder="Vorhandenes Image">
+                                                </div><br><br>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="image-erst">Image erstellen auf</label>
+                                                    <input type="text" class="form-control" id="image-erst" placeholder="Image erstellen auf">
+                                                </div><br><br>
+                                            </div><!--/.col-md-6-->
+                                            <div class="col-md-6">
+                                                <textarea class="form-control textarea-datenuebernahme1" id="textarea-datenuebernahme1" rows="1" placeholder="Datenübernahme"></textarea><br><br>
+                                            </div><!--/.col-md-6-->
+                                        </div><!--/.row-->
                                         <div class="form-group">
                                             <label class="sr-only" for="zusatzauftraege">Zusatzaufträge</label>
                                             <input type="text" class="form-control" id="zusatzauftraege" placeholder="Zusatzaufträge">
