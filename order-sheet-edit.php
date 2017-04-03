@@ -50,11 +50,17 @@
                                 <!--Fieldset-Information-->
                                 <fieldset disabled class="fieldset">
                                     <legend>Information</legend>
-                                    <div class="form-group">
-                                        <label class="sr-only" for="order">Order</label>
-                                        <input type="hidden" class="form-control" id="order" placeholder="Order">
-                                    </div>
                                     <div class="col-md-8">
+                                        <div class="form-group">
+                                            Order<br>
+                                            <label class="sr-only" for="order">Order</label>
+                                            <input type="date" class="form-control" id="order" placeholder="Order">
+                                        </div>
+                                        <div class="form-group">
+                                            Auftragsnummer<br>
+                                            <label class="sr-only" for="auftragsnummer">Auftragsnummer</label>
+                                            <input type="date" class="form-control" id="auftragsnummer" placeholder="Auftragsnummer">
+                                        </div><br><br>
                                         <div class="form-group">
                                             Termin<br>
                                             <label class="sr-only" for="termin">Termin</label>

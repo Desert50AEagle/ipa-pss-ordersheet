@@ -44,15 +44,19 @@
                     <h4 class="form-second-title">(PSS-Ordersheet begleitet Material, bei Auftragsende mit Rapport/Lieferschein ins Büro)</h4><br>
 
                     <form class="form-inline" method="post">
+                        <div class="form-group">
+                            <label class="sr-only" for="order">Order</label>
+                            <input type="hidden" class="form-control" id="order" placeholder="Order">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="auftragsnummer">Auftragsnummer</label>
+                            <input type="hidden" class="form-control" id="auftragsnummer" placeholder="Auftragsnummer">
+                        </div>
                         <div class="row">
                             <div class="row-div">
                                 <!--Fieldset-Information-->
                                 <fieldset class="fieldset">
                                     <legend>Information</legend>
-                                    <div class="form-group">
-                                        <label class="sr-only" for="order">Order</label>
-                                        <input type="hidden" class="form-control" id="order" placeholder="Order">
-                                    </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="sr-only" for="termin">Termin</label>
