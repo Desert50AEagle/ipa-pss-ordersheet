@@ -71,7 +71,7 @@ require ("includes/db-order-sheet-query.php");
                                         <div class="form-group">
                                             <select class="form-control col-lg-3" id="bearbeiter">
                                                 <option class="option-title" value="">Bearbeiter</option>
-                                                <?php foreach($abfrage AS $row): ?>
+                                                <?php foreach($abfrage1 AS $row): ?>
                                                     <option><?php echo $row["username"]; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
@@ -79,7 +79,7 @@ require ("includes/db-order-sheet-query.php");
                                         <div class="form-group">
                                             <select class="form-control" id="zust-int">
                                                 <option class="option-title" value="">Zuständig int</option>
-                                                    <?php foreach($abfrage AS $row): ?>
+                                                    <?php foreach($abfrage1 AS $row): ?>
                                                         <option><?php echo $row["username"]; ?></option>
                                                     <?php endforeach; ?>
                                             </select>
@@ -119,61 +119,57 @@ require ("includes/db-order-sheet-query.php");
                                         <div class="form-group">
                                             <select class="form-control" id="betriebssystem">
                                                 <option class="option-title" value="">Betriebssystem</option>
-                                                <?php foreach($abfrage AS $row): ?>
+                                                <?php foreach($abfrage2 AS $row): ?>
                                                     <option><?php echo $row["betriebssystem"]; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <select class="form-control" id="edition-betriebsys">
-                                                <option>Edition</option>
-                                                <option>Professional</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option class="option-title" value="">Edition</option>
+                                                <?php foreach($abfrage3 AS $row): ?>
+                                                    <option><?php echo $row["betriebssystem_edition"]; ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <select class="form-control" id="architektur">
-                                                <option>Architektur</option>
-                                                <option>32</option>
-                                                <option>64 Bit</option>
+                                                <option class="option-title" value="">Architektur</option>
+                                                <?php foreach($abfrage4 AS $row): ?>
+                                                    <option><?php echo $row["architektur"]; ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <select class="form-control" id="sprache">
-                                                <option>Sprache</option>
-                                                <option>Deutsch</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option class="option-title" value="">Sprache</option>
+                                                <?php foreach($abfrage5 AS $row): ?>
+                                                    <option><?php echo utf8_encode($row["sprache"]); ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div><br><br>
                                         <div class="form-group">
                                             <select class="form-control" id="office">
-                                                <option>Office</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option class="option-title" value="">Office</option>
+                                                <?php foreach($abfrage6 AS $row): ?>
+                                                    <option><?php echo $row["office"]; ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <select class="form-control" id="edition-office">
-                                                <option>Edition</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option class="option-title" value="">Edition</option>
+                                                <?php foreach($abfrage7 AS $row): ?>
+                                                    <option><?php echo $row["office_edition"]; ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div><br><br>
                                         <div class="form-group">
                                             <select class="form-control" id="vierenschutz">
-                                                <option>Vierenschutz</option>
-                                                <option>Antivirus</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option class="option-title" value="">Virenschutz</option>
+                                                <?php foreach($abfrage8 AS $row): ?>
+                                                    <option><?php echo $row["virenschutz"]; ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div><br><br>
                                         <div class="row">
