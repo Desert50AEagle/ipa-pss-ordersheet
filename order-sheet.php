@@ -6,6 +6,12 @@
  * Time: 15:49
  */
 
+//Datenbanverbindung
+require ("includes/db-connection.php");
+
+//Datenbankabfrage
+require ("includes/db-order-sheet-query.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -64,20 +70,18 @@
                                         </div>
                                         <div class="form-group">
                                             <select class="form-control col-lg-3" id="bearbeiter">
-                                                <option>Bearbeiter</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option class="option-title" value="">Bearbeiter</option>
+                                                <?php foreach($abfrage AS $row): ?>
+                                                    <option><?php echo $row["username"]; ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div><br><br>
                                         <div class="form-group">
                                             <select class="form-control" id="zust-int">
-                                                <option>Zuständig int</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option class="option-title" value="">Zuständig int</option>
+                                                    <?php foreach($abfrage AS $row): ?>
+                                                        <option><?php echo $row["username"]; ?></option>
+                                                    <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -114,11 +118,10 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <select class="form-control" id="betriebssystem">
-                                                <option>Betriebssystem</option>
-                                                <option>Windows</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option class="option-title" value="">Betriebssystem</option>
+                                                <?php foreach($abfrage AS $row): ?>
+                                                    <option><?php echo $row["betriebssystem"]; ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
