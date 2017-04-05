@@ -12,6 +12,15 @@ require ("includes/db-connection.php");
 //Datenbankabfrage
 require ("includes/db-order-sheet-query.php");
 
+//Objekt Datum erstellen
+$today = new DateTime();
+$today ->getTimestamp();
+
+
+//Datenbank schreiben
+require ("includes/db-order-sheet-write.php");
+
+
 ?>
 
 <!DOCTYPE html>
@@ -49,14 +58,14 @@ require ("includes/db-order-sheet-query.php");
                     <h1 class="form-title">PSS - Order Sheet</h1>
                     <h4 class="form-second-title">(PSS-Ordersheet begleitet Material, bei Auftragsende mit Rapport/Lieferschein ins Büro)</h4><br>
 
-                    <form class="form-inline" method="post">
+                    <form class="form-inline" action="order-sheet.php" method="post">
                         <div class="form-group">
                             <label class="sr-only" for="order">Order</label>
-                            <input type="hidden" class="form-control" id="order" placeholder="Order">
+                            <input type="text" class="form-control" id="order" name="order" value="1491396993" placeholder="<?php echo $today ->getTimestamp(); ?>">
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="auftragsnummer">Auftragsnummer</label>
-                            <input type="hidden" class="form-control" id="auftragsnummer" placeholder="Auftragsnummer">
+                            <input type="text" class="form-control" id="auftragsnummer" name="auftragsnummer" placeholder="Auftragsnummer">
                         </div>
                         <div class="row">
                             <div class="row-div">
@@ -66,10 +75,10 @@ require ("includes/db-order-sheet-query.php");
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="sr-only" for="termin">Termin</label>
-                                            <input type="date" class="form-control" id="termin" placeholder="Termin">
+                                            <input type="date" class="form-control" id="termin" name="termin" placeholder="Termin">
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control col-lg-3" id="bearbeiter">
+                                            <select class="form-control col-lg-3" id="bearbeiter" name="bearbeiter">
                                                 <option class="option-title" value="">Bearbeiter</option>
                                                 <?php foreach($abfrage1 AS $row): ?>
                                                     <option><?php echo $row["username"]; ?></option>
@@ -77,7 +86,7 @@ require ("includes/db-order-sheet-query.php");
                                             </select>
                                         </div><br><br>
                                         <div class="form-group">
-                                            <select class="form-control" id="zust-int">
+                                            <select class="form-control" id="zust-int" name="zust-int">
                                                 <option class="option-title" value="">Zuständig int</option>
                                                     <?php foreach($abfrage1 AS $row): ?>
                                                         <option><?php echo $row["username"]; ?></option>
@@ -86,30 +95,30 @@ require ("includes/db-order-sheet-query.php");
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="zust-ext">Zuständig ext</label>
-                                            <input type="text" class="form-control" id="zust-ext" placeholder="Zuständig ext">
+                                            <input type="text" class="form-control" id="zust-ext" name="zust-ext" placeholder="Zuständig ext">
                                         </div><br><br>
                                         <div class="form-group">
                                             <label class="sr-only" for="kunde">Kunde</label>
-                                            <input type="text" class="form-control" id="kunde" placeholder="Kunde">
+                                            <input type="text" class="form-control" id="kunde" name="kunde" placeholder="Kunde">
                                         </div><br><br>
                                     </div><!--/.col-md-8-->
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="sr-only" for="material">Materiel</label>
-                                            <input type="text" class="form-control" id="material" placeholder="Material">
+                                            <label class="sr-only" for="material">Material</label>
+                                            <input type="text" class="form-control" id="material" name="material" placeholder="Material">
                                         </div><br><br>
                                         <div class="form-group">
                                             <label class="sr-only" for="produktnummer">Produktnummer</label>
-                                            <input type="text" class="form-control" id="produktnummer" placeholder="Produktnummer">
+                                            <input type="text" class="form-control" id="produktnummer" name="produktnummer" placeholder="Produktnummer">
                                         </div><br><br>
                                         <div class="form-group">
                                             <label class="sr-only" for="seriennummer">Seriennummer</label>
-                                            <input type="text" class="form-control" id="seriennummer" placeholder="Seriennummer">
+                                            <input type="text" class="form-control" id="seriennummer" name="seriennummer" placeholder="Seriennummer">
                                         </div><br><br>
                                     </div><!--/.col-md-4-->
                                 </fieldset><!--/Information-->
                             </div>
-                         </div>
+                        </div>
                         <div class="row">
                             <div class="row-div">
                                 <!--Fieldset-TO DO-->
@@ -117,7 +126,7 @@ require ("includes/db-order-sheet-query.php");
                                     <legend>To Do</legend>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <select class="form-control" id="betriebssystem">
+                                            <select class="form-control" id="betriebssystem" name="betriebssystem">
                                                 <option class="option-title" value="">Betriebssystem</option>
                                                 <?php foreach($abfrage2 AS $row): ?>
                                                     <option><?php echo $row["betriebssystem"]; ?></option>
@@ -125,7 +134,7 @@ require ("includes/db-order-sheet-query.php");
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control" id="edition-betriebsys">
+                                            <select class="form-control" id="edition-betriebsys" name="edition-betriebsys">
                                                 <option class="option-title" value="">Edition</option>
                                                 <?php foreach($abfrage3 AS $row): ?>
                                                     <option><?php echo $row["betriebssystem_edition"]; ?></option>
@@ -133,7 +142,7 @@ require ("includes/db-order-sheet-query.php");
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control" id="architektur">
+                                            <select class="form-control" id="architektur" name="architektur">
                                                 <option class="option-title" value="">Architektur</option>
                                                 <?php foreach($abfrage4 AS $row): ?>
                                                     <option><?php echo $row["architektur"]; ?></option>
@@ -141,7 +150,7 @@ require ("includes/db-order-sheet-query.php");
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control" id="sprache">
+                                            <select class="form-control" id="sprache" name="sprache">
                                                 <option class="option-title" value="">Sprache</option>
                                                 <?php foreach($abfrage5 AS $row): ?>
                                                     <option><?php echo utf8_encode($row["sprache"]); ?></option>
@@ -149,7 +158,7 @@ require ("includes/db-order-sheet-query.php");
                                             </select>
                                         </div><br><br>
                                         <div class="form-group">
-                                            <select class="form-control" id="office">
+                                            <select class="form-control" id="office" name="office">
                                                 <option class="option-title" value="">Office</option>
                                                 <?php foreach($abfrage6 AS $row): ?>
                                                     <option><?php echo $row["office"]; ?></option>
@@ -157,7 +166,7 @@ require ("includes/db-order-sheet-query.php");
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control" id="edition-office">
+                                            <select class="form-control" id="edition-office" name="edition-office">
                                                 <option class="option-title" value="">Edition</option>
                                                 <?php foreach($abfrage7 AS $row): ?>
                                                     <option><?php echo $row["office_edition"]; ?></option>
@@ -165,7 +174,7 @@ require ("includes/db-order-sheet-query.php");
                                             </select>
                                         </div><br><br>
                                         <div class="form-group">
-                                            <select class="form-control" id="vierenschutz">
+                                            <select class="form-control" id="vierenschutz" name="vierenschutz">
                                                 <option class="option-title" value="">Virenschutz</option>
                                                 <?php foreach($abfrage8 AS $row): ?>
                                                     <option><?php echo $row["virenschutz"]; ?></option>
@@ -176,20 +185,20 @@ require ("includes/db-order-sheet-query.php");
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="sr-only" for="vorh-image">Vorhandenes Image</label>
-                                                    <input type="text" class="form-control" id="vorh-image" placeholder="Vorhandenes Image">
+                                                    <input type="text" class="form-control" id="vorh-image" name="vorh-image" placeholder="Vorhandenes Image">
                                                 </div><br><br>
                                                 <div class="form-group">
                                                     <label class="sr-only" for="image-erst">Image erstellen auf</label>
-                                                    <input type="text" class="form-control" id="image-erst" placeholder="Image erstellen auf">
+                                                    <input type="text" class="form-control" id="image-erst" name="image-erst" placeholder="Image erstellen auf">
                                                 </div><br><br>
                                             </div><!--/.col-md-6-->
                                             <div class="col-md-6">
-                                                <textarea class="form-control textarea-datenuebernahme1" id="textarea-datenuebernahme1" rows="1" placeholder="Datenübernahme"></textarea><br><br>
+                                                <textarea class="form-control textarea-datenuebernahme1" id="textarea-datenuebernahme1" name="textarea-datenuebernahme1" rows="1" placeholder="Datenübernahme"></textarea><br><br>
                                             </div><!--/.col-md-6-->
                                         </div><!--/.row-->
                                         <div class="form-group">
                                             <label class="sr-only" for="zusatzauftraege">Zusatzaufträge</label>
-                                            <input type="text" class="form-control" id="zusatzauftraege" placeholder="Zusatzaufträge">
+                                            <input type="text" class="form-control" id="zusatzauftraege" name="zusatzauftraege" placeholder="Zusatzaufträge">
                                         </div><br><br>
                                         <div class="buttons-form">
                                             <button type="submit" class="btn btn-default form-submit">Auftrag erstellen</button>
