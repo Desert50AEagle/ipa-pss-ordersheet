@@ -6,6 +6,14 @@
  * Time: 10:21
  */
 
+//Datenbanverbindung
+require ("includes/db-connection.php");
+
+//Datenbankabfrage
+require ("includes/db-order-sheet-edit-query.php");
+
+//Datenbank schreiben
+require ("includes/db-order-sheet-edit-write.php");
 
 ?>
 
@@ -45,7 +53,7 @@
                     <h1 class="form-title">PSS - Order Sheet</h1>
                     <h4 class="form-second-title">(PSS-Ordersheet begleitet Material, bei Auftragsende mit Rapport/Lieferschein ins Büro)</h4><br>
 
-                    <form class="form-inline" method="post">
+                    <form class="form-inline" action="index.php" method="post">
                         <div class="row">
                             <div class="row-div">
                                 <!--Fieldset-Information-->
@@ -55,64 +63,56 @@
                                         <div class="form-group">
                                             Order<br>
                                             <label class="sr-only" for="order">Order</label>
-                                            <input type="date" class="form-control" id="order" placeholder="Order">
+                                            <input type="date" class="form-control" id="order" value="<?php echo $order; ?>">
                                         </div>
                                         <div class="form-group">
                                             Auftragsnummer<br>
                                             <label class="sr-only" for="auftragsnummer">Auftragsnummer</label>
-                                            <input type="date" class="form-control" id="auftragsnummer" placeholder="Auftragsnummer">
+                                            <input type="date" class="form-control" id="auftragsnummer" value="<?php echo $auftragsnummer; ?>">
                                         </div><br><br>
                                         <div class="form-group">
                                             Termin<br>
                                             <label class="sr-only" for="termin">Termin</label>
-                                            <input type="date" class="form-control" id="termin" placeholder="Termin">
+                                            <input type="date" class="form-control" id="termin" value="<?php echo $termin; ?>">
                                         </div>
                                         <div class="form-group">
                                             Bearbeiter<br>
                                             <select class="form-control col-lg-3" id="bearbeiter">
-                                                <option>Bearbeiter</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option><?php echo $bearbeiter; ?></option>
                                             </select>
                                         </div><br><br>
                                         <div class="form-group">
                                             Zuständig int<br>
                                             <select class="form-control" id="zust-int">
-                                                <option>Zuständig int</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option><?php echo $zustaendig_int; ?></option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             Zuständig ext<br>
                                             <label class="sr-only" for="zust-ext">Zuständig ext</label>
-                                            <input type="text" class="form-control" id="zust-ext" placeholder="Zuständig ext">
+                                            <input type="text" class="form-control" id="zust-ext" value="<?php echo $zustaendig_ext; ?>">
                                         </div><br><br>
                                         <div class="form-group">
                                             Kunde<br>
                                             <label class="sr-only" for="kunde">Kunde</label>
-                                            <input type="text" class="form-control" id="kunde" placeholder="Kunde">
+                                            <input type="text" class="form-control" id="kunde" value="<?php echo $kunde; ?>">
                                         </div><br><br>
                                     </div><!--/.col-md-8-->
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             Material<br>
                                             <label class="sr-only" for="material">Material</label>
-                                            <input type="text" class="form-control" id="material" placeholder="Material">
+                                            <input type="text" class="form-control" id="material" value="<?php echo $material; ?>">
                                         </div><br><br>
                                         <div class="form-group">
                                             Produktnummer<br>
                                             <label class="sr-only" for="produktnummer">Produktnummer</label>
-                                            <input type="text" class="form-control" id="produktnummer" placeholder="Produktnummer">
+                                            <input type="text" class="form-control" id="produktnummer" value="<?php echo $produktnummer; ?>">
                                         </div><br><br>
                                         <div class="form-group">
                                             Seriennummer<br>
                                             <label class="sr-only" for="seriennummer">Seriennummer</label>
-                                            <input type="text" class="form-control" id="seriennummer" placeholder="Seriennummer">
+                                            <input type="text" class="form-control" id="seriennummer" value="<?php echo $seriennummer; ?>">
                                         </div><br><br>
                                     </div><!--/.col-md-4-->
                                 </fieldset><!--/Information-->
@@ -127,69 +127,43 @@
                                         <div class="form-group">
                                             Betriebssystem<br>
                                             <select class="form-control" id="betriebssystem">
-                                                <option>Betriebssystem</option>
-                                                <option>Windows</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option><?php echo $betriebssystem; ?></option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             Edition<br>
                                             <select class="form-control" id="edition-betriebsys">
-                                                <option>Edition</option>
-                                                <option>Professional</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option><?php echo $edition_betriebsys; ?></option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             Architektur<br>
                                             <select class="form-control" id="architektur">
-                                                <option>Architektur</option>
-                                                <option>32</option>
-                                                <option>64 Bit</option>
+                                                <option><?php echo $architektur; ?></option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             Sprache<br>
                                             <select class="form-control" id="sprache">
-                                                <option>Sprache</option>
-                                                <option>Deutsch</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option><?php echo $sprache; ?></option>
                                             </select>
                                         </div><br><br>
                                         <div class="form-group">
                                             Office<br>
                                             <select class="form-control" id="office">
-                                                <option>Office</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option><?php echo $office; ?></option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             Edition<br>
                                             <select class="form-control" id="edition-office">
-                                                <option>Edition</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option><?php echo $edition_office; ?></option>
                                             </select>
                                         </div><br><br>
                                         <div class="form-group">
                                             Vierenschutz<br>
                                             <select class="form-control" id="vierenschutz">
-                                                <option>Vierenschutz</option>
-                                                <option>Antivirus</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option><?php echo $vierenschutz; ?></option>
                                             </select>
                                         </div><br><br>
                                         <div class="row">
@@ -197,23 +171,23 @@
                                                     <div class="form-group">
                                                         Vorhandenes Image<br>
                                                         <label class="sr-only" for="vorh-image">Vorhandenes Image</label>
-                                                        <input type="text" class="form-control" id="vorh-image" placeholder="Vorhandenes Image">
+                                                        <input type="text" class="form-control" id="vorh-image" value="<?php echo $vorh_image; ?>">
                                                     </div><br><br>
                                                     <div class="form-group">
                                                         Image erstellen auf<br>
                                                         <label class="sr-only" for="image-erst">Image erstellen auf</label>
-                                                        <input type="text" class="form-control" id="image-erst" placeholder="Image erstellen auf">
+                                                        <input type="text" class="form-control" id="image-erst" value="<?php echo $image_erst; ?>">
                                                     </div><br><br>
                                                 </div><!--/.col-md-6-->
                                                 <div class="col-md-6">
                                                     Datenübernahme<br>
-                                                    <textarea class="form-control textarea-datenuebernahme2" id="textarea-datenuebernahme2" rows="1" placeholder="Info"></textarea><br><br>
+                                                    <textarea class="form-control textarea-datenuebernahme2" id="textarea-datenuebernahme2" rows="1" placeholder="<?php echo $textarea_datenuebernahme1; ?>"></textarea><br><br>
                                                 </div><!--/.col-md-6-->
                                         </div><!--/.row-->
                                         <div class="form-group">
                                             Zusatzaufträge<br>
                                             <label class="sr-only" for="zusatzauftraege1">Zusatzaufträge</label>
-                                            <input type="text" class="form-control" id="zusatzauftraege1" placeholder="Zusatzaufträge">
+                                            <input type="text" class="form-control" id="zusatzauftraege1" value="<?php echo $zusatzauftraege; ?>">
                                         </div><br><br>
                                     </div><!--/.col-md-12-->
                                 </fieldset>
@@ -233,7 +207,7 @@
                                         <textarea class="form-control textarea-geraetepruefung" id="textarea-geraetepruefung" rows="1" placeholder="Info"></textarea><br><br>
                                         <div class="radio">
                                             <label>
-                                                <input type="checkbox" name="hardware-reparatur" id="hardware-reparatur" value="">
+                                                <input type="checkbox" name="check-hardware-reparatur" id="check-hardware-reparatur" value="">
                                                 Hardware Reparatur
                                             </label>
                                         </div>
@@ -247,7 +221,7 @@
                                         </div><br><br>
                                         <div class="radio">
                                             <label>
-                                                <input type="checkbox" name="entsorgung-altgeraet" id="entsorgung-altgeraet" value="">
+                                                <input type="checkbox" name="check-entsorgung-altgeraet" id="check-entsorgung-altgeraet" value="">
                                                 Entsorgung von Altgerät
                                             </label>
                                         </div>
@@ -276,7 +250,7 @@
                                         </div>
                                         <div class="checkbox">
                                             <label class="checkbox-reihe-signierung">
-                                                <input type="checkbox"  id="system-doku-blatt" value="">
+                                                <input type="checkbox"  id="check-system-doku-blatt" value="">
                                                 Systemdoku/Dokublatt
                                             </label>
                                         </div>
@@ -287,11 +261,10 @@
                                     </div><br><br>
                                     <div class="form-group">
                                         <select class="form-control" id="signatur-bearbeiter">
-                                            <option>Bearbeiter</option>
-                                            <option>KRM</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                            <option class="option-title" value="">Bearbeiter</option>
+                                            <?php foreach($abfrage2 AS $row): ?>
+                                                <option><?php echo $row["username"]; ?></option>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
                                     <textarea class="form-control" id="textarea-signatur" rows="1" placeholder="Info"></textarea><br><br><br>

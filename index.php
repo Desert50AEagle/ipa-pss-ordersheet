@@ -54,7 +54,7 @@ $today ->getTimestamp();
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>
+                                <th class="uebersicht-status">
                                     Status
                                 </th>
                                 <th>
@@ -72,7 +72,7 @@ $today ->getTimestamp();
                                 <th>
                                     Bearbeiter
                                 </th>
-                                <th>
+                                <th class="uebersicht-buttons">
                                     Aktion
                                 </th>
                             </tr>
@@ -80,7 +80,7 @@ $today ->getTimestamp();
                         <tbody>
                         <?php foreach($abfrage AS $row): ?>
                             <tr>
-                                <?php if ($row["termin"] > $today): ?>
+                                <?php if ($row["termin"] < $today): ?>
                                     <td id="status-ok">
                                         <span class="glyphicon glyphicon-ok"></span>
                                     </td>
@@ -91,7 +91,7 @@ $today ->getTimestamp();
                                 <?php endif; ?>
                                 <td>
                                     <?php echo $row['auftragsnummer']; ?>
-                                    <input type="hidden" name="id-auftragsnummer" value="<?php echo $row['auftrag_id']; ?>">
+                                    <input type="hidden" name="auftrag_id" value="<?php echo $row['auftrag_id']; ?>">
                                 </td>
                                 <td>
                                     <?php echo date("d.m.Y", $row['termin']); ?>
@@ -104,10 +104,11 @@ $today ->getTimestamp();
                                 </td>
                                 <td>
                                     <?php echo $row['bearbeiter']; ?>
-                                </td><td>
-                                    <div class="btn-group uebersicht-buttons">
+                                </td>
+                                <td>
+                                    <div class="btn-group">
                                         <button type="button" class="btn btn-default glyphicon glyphicon-list-alt" data-toggle="tooltip" data-placement="top" title="PDF"></button>
-                                        <button type="button" class="btn btn-default glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Bearbeiten"></button>
+                                        <a href="order-sheet-edit.php?id=<?php echo $row["auftrag_id"] ; ?>" type="button" class="btn btn-default glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Bearbeiten"></a>
                                         <button type="button" class="btn btn-default glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Löschen"></button>
                                     </div>
                                 </td>
