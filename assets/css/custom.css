@@ -37,6 +37,19 @@ h4{
     justify-content: center;
 }
 
+/*index.php | Warnungen*/
+#status-ok{
+    color: green;
+}
+
+#status-alert{
+    color: red;
+}
+/*
+.uebersicht-buttons{
+    float: right;
+}*/
+
 /*order-sheet.php | Richtige Zentrierung der Formulars Responsivität */
 .form-well{
     width: auto;
