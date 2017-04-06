@@ -6,9 +6,6 @@
  * Time: 13:21
  */
 
-//Datenbankverbindung
-require ("db-connection.php");
-
 //Variabeln setzen
 $order                      = "";
 $auftragsnummer             = "";

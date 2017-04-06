@@ -5,6 +5,17 @@
  * Date: 29.03.2017
  * Time: 15:47
  */
+//Datenbanverbindung
+require ("includes/db-connection.php");
+
+//Datenbankabfrage
+require ("includes/db-uebersicht-query.php");
+
+//Objekt Datum erstellen
+$today = new DateTime();
+$today ->getTimestamp();
+
+
 
 ?>
 
@@ -34,9 +45,82 @@
 <body>
 <div class="container-fluid">
     <?php include ("header.php")?>
-
-    <h1>Hello, world!</h1>
-
+    <div class="row">
+        <div class="row-div">
+            <!--Leeres Div für die Unterstützung des zentrieren vom Div "form-well"-->
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="well">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Status
+                                </th>
+                                <th>
+                                    Auftragsnummer
+                                </th>
+                                <th>
+                                    Termin
+                                </th>
+                                <th>
+                                    Kunde
+                                </th>
+                                <th>
+                                    Zuständig int
+                                </th>
+                                <th>
+                                    Bearbeiter
+                                </th>
+                                <th>
+                                    Aktion
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach($abfrage AS $row): ?>
+                            <tr>
+                                <?php if ($row["termin"] > $today): ?>
+                                    <td id="status-ok">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                    </td>
+                                <?php else: ?>
+                                    <td id="status-alert">
+                                        <span class="glyphicon glyphicon-alert"></span>
+                                    </td>
+                                <?php endif; ?>
+                                <td>
+                                    <?php echo $row['auftragsnummer']; ?>
+                                    <input type="hidden" name="id-auftragsnummer" value="<?php echo $row['auftrag_id']; ?>">
+                                </td>
+                                <td>
+                                    <?php echo date("d.m.Y", $row['termin']); ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['kunde']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['zustaendig_int']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['bearbeiter']; ?>
+                                </td><td>
+                                    <div class="btn-group uebersicht-buttons">
+                                        <button type="button" class="btn btn-default glyphicon glyphicon-list-alt" data-toggle="tooltip" data-placement="top" title="PDF"></button>
+                                        <button type="button" class="btn btn-default glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Bearbeiten"></button>
+                                        <button type="button" class="btn btn-default glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Löschen"></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--Leeres Div für die Unterstützung des zentrieren vom Div "form-well"-->
+            <div class="col-md-2"></div>
+        </div>
+    </div>
     <?php include ("footer.php")?>
 </div>
 
