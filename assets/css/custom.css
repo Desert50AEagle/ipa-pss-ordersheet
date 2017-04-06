@@ -45,10 +45,14 @@ h4{
 #status-alert{
     color: red;
 }
-/*
+
+.uebersicht-status{
+    width: 50px;
+}
+
 .uebersicht-buttons{
-    float: right;
-}*/
+    width: 137px;
+}
 
 /*order-sheet.php | Richtige Zentrierung der Formulars Responsivität */
 .form-well{
