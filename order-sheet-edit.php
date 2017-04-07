@@ -53,7 +53,7 @@ require ("includes/db-order-sheet-edit-write.php");
                     <h1 class="form-title">PSS - Order Sheet</h1>
                     <h4 class="form-second-title">(PSS-Ordersheet begleitet Material, bei Auftragsende mit Rapport/Lieferschein ins Büro)</h4><br>
 
-                    <form class="form-inline" action="index.php" method="post">
+                    <form class="form-inline"  method="post">
                         <div class="row">
                             <div class="row-div">
                                 <!--Fieldset-Information-->
@@ -201,11 +201,12 @@ require ("includes/db-order-sheet-edit-write.php");
                                     <div class="col-md-12">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" class="checkrequired" id="check-geraetepruefung"> Geräteprüfung
+                                                <input type="checkbox"  id="check-geraetepruefung" name="check-geraetepruefung" value="">
+                                                Geräteprüfung
                                             </label>
                                         </div>
-                                        <textarea class="form-control textarea-geraetepruefung" id="textarea-geraetepruefung" rows="1" placeholder="Info"></textarea><br><br>
-                                        <div class="radio">
+                                        <textarea class="form-control textarea-geraetepruefung" id="textarea-geraetepruefung" name="textarea-geraetepruefung" rows="1" placeholder="Info"></textarea><br><br>
+                                        <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" name="check-hardware-reparatur" id="check-hardware-reparatur" value="">
                                                 Hardware Reparatur
@@ -213,13 +214,13 @@ require ("includes/db-order-sheet-edit-write.php");
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="case-id">Case ID</label>
-                                            <input type="text" class="form-control" id="case-id" placeholder="Case ID">
+                                            <input type="text" class="form-control" id="case-id" name="case-id" placeholder="Case ID">
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="termin-techniker">Termin Techniker</label>
-                                            <input type="date" class="form-control" id="termin-techniker" placeholder="Termin Techniker">
+                                            <input type="date" class="form-control" id="termin-techniker" name="termin-techniker" placeholder="Termin Techniker">
                                         </div><br><br>
-                                        <div class="radio">
+                                        <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" name="check-entsorgung-altgeraet" id="check-entsorgung-altgeraet" value="">
                                                 Entsorgung von Altgerät
@@ -238,36 +239,36 @@ require ("includes/db-order-sheet-edit-write.php");
                                     <div class="col-md-12 arbeiten-checkboxen">
                                         <div class="checkbox">
                                             <label class="checkbox-reihe-signierung">
-                                                <input type="checkbox" id="check-liefer-rapport" value="">
+                                                <input type="checkbox" id="check-liefer-rapport" name="check-liefer-rapport" value="">
                                                 Lieferschein/Rapport
                                             </label>
                                         </div>
                                         <div class="checkbox">
                                             <label class="checkbox-reihe-signierung">
-                                                <input type="checkbox" id="check-trackit-erfasst" value="">
+                                                <input type="checkbox" id="check-trackit-erfasst" name="check-trackit-erfasst" value="">
                                                 Hardware in Trackit erfasst
                                             </label>
                                         </div>
                                         <div class="checkbox">
                                             <label class="checkbox-reihe-signierung">
-                                                <input type="checkbox"  id="check-system-doku-blatt" value="">
+                                                <input type="checkbox"  id="check-system-doku-blatt" name="check-system-doku-blatt" value="">
                                                 Systemdoku/Dokublatt
                                             </label>
                                         </div>
                                     </div><!--./col-md-12-->
                                     <div class="form-group">
                                         <label class="sr-only" for="datum-signierung">Datum</label>
-                                        <input type="hidden" class="form-control" id="datum-signierung" placeholder="Datum">
+                                        <input type="hidden" class="form-control" id="datum-signierung" name="datum-signierung" placeholder="Datum">
                                     </div><br><br>
                                     <div class="form-group">
-                                        <select class="form-control" id="signatur-bearbeiter">
+                                        <select class="form-control" id="signatur-bearbeiter" name="signatur-bearbeiter">
                                             <option class="option-title" value="">Bearbeiter</option>
                                             <?php foreach($abfrage2 AS $row): ?>
                                                 <option><?php echo $row["username"]; ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
-                                    <textarea class="form-control" id="textarea-signatur" rows="1" placeholder="Info"></textarea><br><br><br>
+                                    <textarea class="form-control" id="textarea-signatur" name="textarea-signatur" rows="1" placeholder="Info"></textarea><br><br><br>
 
 
                                     <div class="buttons-form">
