@@ -107,7 +107,7 @@ $today ->getTimestamp();
                                 </td>
                                 <td>
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-default glyphicon glyphicon-list-alt" data-toggle="tooltip" data-placement="top" title="PDF"></button>
+                                        <a href="pdf.php?id=<?php echo $row["auftrag_id"] ; ?>" type="button" class="btn btn-default glyphicon glyphicon-list-alt" data-toggle="tooltip" data-placement="top" title="PDF"></a>
                                         <a href="order-sheet-edit.php?id=<?php echo $row["auftrag_id"] ; ?>" type="button" class="btn btn-default glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Bearbeiten"></a>
                                         <button type="button" class="btn btn-default glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Löschen"></button>
                                     </div>
