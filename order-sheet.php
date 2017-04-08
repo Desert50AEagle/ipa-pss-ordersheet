@@ -13,8 +13,8 @@ require ("includes/db-connection.php");
 require ("includes/db-order-sheet-query.php");
 
 //Objekt Datum erstellen
-$today = new DateTime();
-$today ->getTimestamp();
+$date = new DateTime();
+$today = $date->getTimestamp();
 
 
 //Datenbank schreiben
@@ -61,7 +61,7 @@ require ("includes/db-order-sheet-write.php");
                     <form class="form-inline" action="order-sheet.php" method="post">
                         <div class="form-group">
                             <label class="sr-only" for="order">Order</label>
-                            <input type="text" class="form-control" id="order" name="order" value="1491396993" placeholder="<?php echo $today ->getTimestamp(); ?>">
+                            <input type="hidden" class="form-control" id="order" name="order" value="<?php echo $today; ?>">
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="auftragsnummer">Auftragsnummer</label>
