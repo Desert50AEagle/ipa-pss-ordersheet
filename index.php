@@ -80,7 +80,7 @@ $today ->getTimestamp();
                         <tbody>
                         <?php foreach($abfrage AS $row): ?>
                             <tr>
-                                <?php if ($row["termin"] < $today): ?>
+                                <?php if ($row["termin"] > $today): ?>
                                     <td id="status-ok">
                                         <span class="glyphicon glyphicon-ok"></span>
                                     </td>
