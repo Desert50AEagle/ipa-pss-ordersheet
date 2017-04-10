@@ -8,7 +8,7 @@
 
 $auftrag_id = $_GET["id"];
 
-//Datenbankabfrage Order Shee Input-------------------------------------------------------------------------------------------------
+//Datenbankabfrage
 $abfrage1  = mysqli_query($conn, "SELECT `order`,
                                         auftragsnummer, 
                                         termin, 
@@ -29,11 +29,11 @@ $abfrage1  = mysqli_query($conn, "SELECT `order`,
                                         vorh_image, 
                                         image_erst, 
                                         textarea_datenuebernahme1, 
-                                        zusatzauftraege 
+                                        textarea_zusatzauftraege1 
                                         FROM auftrag 
                                         WHERE auftrag_id = $auftrag_id");
 
-
+//Variabeln definieren
 foreach ($abfrage1 as $row)
 {
     $order                      = $row["order"];
@@ -56,9 +56,8 @@ foreach ($abfrage1 as $row)
     $vorh_image                 = $row["vorh_image"];
     $image_erst                 = $row["image_erst"];
     $textarea_datenuebernahme1  = $row["textarea_datenuebernahme1"];
-    $zusatzauftraege            = $row["zusatzauftraege"];
+    $textarea_zusatzauftraege1  = $row["textarea_zusatzauftraege1"];
 }
-//Datenbankabfrage Order Shee Input Ende---------------------------------------------------------------------------------------------
 
 //Datenbank Abfrage username---------------------------------------------------------------------------------------------------------
 $abfrage2  = mysqli_query($conn, "SELECT username FROM pss_os_user ORDER BY username ASC");

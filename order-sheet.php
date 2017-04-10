@@ -65,7 +65,7 @@ require ("includes/db-order-sheet-write.php");
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="auftragsnummer">Auftragsnummer</label>
-                            <input type="text" class="form-control" id="auftragsnummer" name="auftragsnummer" placeholder="Auftragsnummer">
+                            <input type="hidden" class="form-control" id="auftragsnummer" name="auftragsnummer" placeholder="Auftragsnummer">
                         </div>
                         <div class="row">
                             <div class="row-div">
@@ -75,19 +75,19 @@ require ("includes/db-order-sheet-write.php");
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="sr-only" for="termin">Termin</label>
-                                            <input type="date" class="form-control" id="termin" name="termin" placeholder="Termin">
+                                            <input type="date" class="form-control" id="termin" name="termin" placeholder="Termin*" required>
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control col-lg-3" id="bearbeiter" name="bearbeiter">
-                                                <option class="option-title" value="">Bearbeiter</option>
+                                            <select class="form-control col-lg-3" id="bearbeiter" name="bearbeiter" required>
+                                                <option class="option-title" value="">Bearbeiter*</option>
                                                 <?php foreach($abfrage1 AS $row): ?>
                                                     <option><?php echo $row["username"]; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div><br><br>
                                         <div class="form-group">
-                                            <select class="form-control" id="zust-int" name="zust-int">
-                                                <option class="option-title" value="">Zuständig int</option>
+                                            <select class="form-control" id="zust-int" name="zust-int" required>
+                                                <option class="option-title" value="">Zuständig int*</option>
                                                     <?php foreach($abfrage1 AS $row): ?>
                                                         <option><?php echo $row["username"]; ?></option>
                                                     <?php endforeach; ?>
@@ -95,25 +95,25 @@ require ("includes/db-order-sheet-write.php");
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="zust-ext">Zuständig ext</label>
-                                            <input type="text" class="form-control" id="zust-ext" name="zust-ext" placeholder="Zuständig ext">
+                                            <input type="text" class="form-control" id="zust-ext" name="zust-ext" placeholder="Zuständig ext*" maxlength="20" required>
                                         </div><br><br>
                                         <div class="form-group">
                                             <label class="sr-only" for="kunde">Kunde</label>
-                                            <input type="text" class="form-control" id="kunde" name="kunde" placeholder="Kunde">
+                                            <input type="text" class="form-control" id="kunde" name="kunde" placeholder="Kunde*" maxlength="40" required>
                                         </div><br><br>
                                     </div><!--/.col-md-8-->
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="sr-only" for="material">Material</label>
-                                            <input type="text" class="form-control" id="material" name="material" placeholder="Material">
+                                            <input type="text" class="form-control" id="material" name="material" placeholder="Material*" maxlength="30" required>
                                         </div><br><br>
                                         <div class="form-group">
                                             <label class="sr-only" for="produktnummer">Produktnummer</label>
-                                            <input type="text" class="form-control" id="produktnummer" name="produktnummer" placeholder="Produktnummer">
+                                            <input type="text" class="form-control" id="produktnummer" name="produktnummer" placeholder="Produktnummer*" maxlength="20" required>
                                         </div><br><br>
                                         <div class="form-group">
                                             <label class="sr-only" for="seriennummer">Seriennummer</label>
-                                            <input type="text" class="form-control" id="seriennummer" name="seriennummer" placeholder="Seriennummer">
+                                            <input type="text" class="form-control" id="seriennummer" name="seriennummer" placeholder="Seriennummer*" maxlength="20" required>
                                         </div><br><br>
                                     </div><!--/.col-md-4-->
                                 </fieldset><!--/Information-->
@@ -126,56 +126,56 @@ require ("includes/db-order-sheet-write.php");
                                     <legend>To Do</legend>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <select class="form-control" id="betriebssystem" name="betriebssystem">
-                                                <option class="option-title" value="">Betriebssystem</option>
+                                            <select class="form-control" id="betriebssystem" name="betriebssystem" required>
+                                                <option class="option-title" value="">Betriebssystem*</option>
                                                 <?php foreach($abfrage2 AS $row): ?>
                                                     <option><?php echo $row["betriebssystem"]; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control" id="edition-betriebsys" name="edition-betriebsys">
-                                                <option class="option-title" value="">Edition</option>
+                                            <select class="form-control" id="edition-betriebsys" name="edition-betriebsys" required>
+                                                <option class="option-title" value="">Edition*</option>
                                                 <?php foreach($abfrage3 AS $row): ?>
                                                     <option><?php echo $row["betriebssystem_edition"]; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control" id="architektur" name="architektur">
-                                                <option class="option-title" value="">Architektur</option>
+                                            <select class="form-control" id="architektur" name="architektur" required>
+                                                <option class="option-title" value="">Architektur*</option>
                                                 <?php foreach($abfrage4 AS $row): ?>
                                                     <option><?php echo $row["architektur"]; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control" id="sprache" name="sprache">
-                                                <option class="option-title" value="">Sprache</option>
+                                            <select class="form-control" id="sprache" name="sprache" required>
+                                                <option class="option-title" value="">Sprache*</option>
                                                 <?php foreach($abfrage5 AS $row): ?>
                                                     <option><?php echo utf8_encode($row["sprache"]); ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div><br><br>
                                         <div class="form-group">
-                                            <select class="form-control" id="office" name="office">
-                                                <option class="option-title" value="">Office</option>
+                                            <select class="form-control" id="office" name="office" required>
+                                                <option class="option-title" value="">Office*</option>
                                                 <?php foreach($abfrage6 AS $row): ?>
                                                     <option><?php echo $row["office"]; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control" id="edition-office" name="edition-office">
-                                                <option class="option-title" value="">Edition</option>
+                                            <select class="form-control" id="edition-office" name="edition-office" required>
+                                                <option class="option-title" value="">Edition*</option>
                                                 <?php foreach($abfrage7 AS $row): ?>
                                                     <option><?php echo $row["office_edition"]; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div><br><br>
                                         <div class="form-group">
-                                            <select class="form-control" id="vierenschutz" name="vierenschutz">
-                                                <option class="option-title" value="">Virenschutz</option>
+                                            <select class="form-control" id="vierenschutz" name="vierenschutz" required>
+                                                <option class="option-title" value="">Virenschutz*</option>
                                                 <?php foreach($abfrage8 AS $row): ?>
                                                     <option><?php echo $row["virenschutz"]; ?></option>
                                                 <?php endforeach; ?>
@@ -197,8 +197,7 @@ require ("includes/db-order-sheet-write.php");
                                             </div><!--/.col-md-6-->
                                         </div><!--/.row-->
                                         <div class="form-group">
-                                            <label class="sr-only" for="zusatzauftraege">Zusatzaufträge</label>
-                                            <input type="text" class="form-control" id="zusatzauftraege" name="zusatzauftraege" placeholder="Zusatzaufträge">
+                                            <textarea class="form-control textarea-zusatzauftraege1" id="textarea-zusatzauftraege1" name="textarea-zusatzauftraege1" rows="1" placeholder="Zusatzaufträge"></textarea>
                                         </div><br><br>
                                         <div class="buttons-form">
                                             <button type="submit" class="btn btn-default form-submit">Auftrag erstellen</button>

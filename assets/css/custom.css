@@ -125,6 +125,16 @@ h4{
         width: 266px;
     }
 
+    /*Order Sheet*/
+    #textarea-zusatzauftraege1{
+        height: 88px;
+        width: 285px;
+    }
+    #textarea-zusatzauftraege2{
+        height: 88px;
+        width: 285px;
+    }
+
     #image-erst{
         width: 285px;
     }
@@ -156,13 +166,14 @@ h4{
         margin-right: 20px;
     }
 
-    #signatur-bearbeiter{
+    #signatur-bearbeiter, #password{
         margin-left: 20px;
         margin-right: 42px;
         width: 141px;
     }
 
     #textarea-signatur{
+        height: 90px;
         width: 376px;
     }
 }

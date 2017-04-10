@@ -12,16 +12,19 @@ $abfrage  = mysqli_query($conn, "SELECT auftrag_id,
                                         termin, 
                                         kunde, 
                                         zustaendig_int, 
-                                        bearbeiter FROM auftrag");
+                                        bearbeiter,
+                                        datum_signierung
+                                        FROM auftrag");
 
-
+//Variabeln definieren
 foreach ($abfrage as $row)
 {
-    $auftrag_id     = $row["auftrag_id"];
-    $auftragsnummer = $row["auftragsnummer"];
-    $termin         = $row["termin"];
-    $kunde          = $row["kunde"];
-    $zustaendig_int = $row["zustaendig_int"];
-    $bearbeiter     = $row["bearbeiter"];
+    $auftrag_id         = $row["auftrag_id"];
+    $auftragsnummer     = $row["auftragsnummer"];
+    $termin             = $row["termin"];
+    $kunde              = $row["kunde"];
+    $zustaendig_int     = $row["zustaendig_int"];
+    $bearbeiter         = $row["bearbeiter"];
+    $datum_signierung   = $row["datum_signierung"];
 }
 ?>
