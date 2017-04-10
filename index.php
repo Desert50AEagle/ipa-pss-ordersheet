@@ -12,8 +12,8 @@ require ("includes/db-connection.php");
 require ("includes/db-uebersicht-query.php");
 
 //Objekt Datum erstellen
-$today = new DateTime();
-$today ->getTimestamp();
+$date = new DateTime();
+$today = $date->getTimestamp();
 
 
 
@@ -51,6 +51,7 @@ $today ->getTimestamp();
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <div class="well">
+                    <a class="btn btn-default" href="order-sheet.php" role="button">Neuer Auftrag</a>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -79,40 +80,44 @@ $today ->getTimestamp();
                         </thead>
                         <tbody>
                         <?php foreach($abfrage AS $row): ?>
-                            <tr>
-                                <?php if ($row["termin"] > $today): ?>
-                                    <td id="status-ok">
-                                        <span class="glyphicon glyphicon-ok"></span>
+                            <?php if ($row["datum_signierung"] == "0"): ?>
+                                <tr <?php if ($row["termin"] < $today): ?>
+                                    class="danger"
+                                    <?php endif; ?>>
+                                    <?php if ($row["termin"] > $today): ?>
+                                        <td id="status-ok">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </td>
+                                    <?php else: ?>
+                                        <td id="status-alert">
+                                            <span class="glyphicon glyphicon-alert"></span>
+                                        </td>
+                                    <?php endif; ?>
+                                    <td>
+                                        <?php echo $row['auftragsnummer']; ?>
+                                        <input type="hidden" name="auftrag_id" value="<?php echo $row['auftrag_id']; ?>">
                                     </td>
-                                <?php else: ?>
-                                    <td id="status-alert">
-                                        <span class="glyphicon glyphicon-alert"></span>
+                                    <td>
+                                        <?php echo date("d.m.Y", $row['termin']); ?>
                                     </td>
-                                <?php endif; ?>
-                                <td>
-                                    <?php echo $row['auftragsnummer']; ?>
-                                    <input type="hidden" name="auftrag_id" value="<?php echo $row['auftrag_id']; ?>">
-                                </td>
-                                <td>
-                                    <?php echo date("d.m.Y", $row['termin']); ?>
-                                </td>
-                                <td>
-                                    <?php echo $row['kunde']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $row['zustaendig_int']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $row['bearbeiter']; ?>
-                                </td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a href="pdf.php?id=<?php echo $row["auftrag_id"] ; ?>" type="button" class="btn btn-default glyphicon glyphicon-list-alt" data-toggle="tooltip" data-placement="top" title="PDF"></a>
-                                        <a href="order-sheet-edit.php?id=<?php echo $row["auftrag_id"] ; ?>" type="button" class="btn btn-default glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Bearbeiten"></a>
-                                        <button type="button" class="btn btn-default glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Löschen"></button>
-                                    </div>
-                                </td>
-                            </tr>
+                                    <td>
+                                        <?php echo $row['kunde']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['zustaendig_int']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['bearbeiter']; ?>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="pdf.php?id=<?php echo $row["auftrag_id"] ; ?>" type="button" class="btn btn-default glyphicon glyphicon-list-alt" data-toggle="tooltip" data-placement="top" title="PDF"></a>
+                                            <a href="order-sheet-edit.php?id=<?php echo $row["auftrag_id"] ; ?>" type="button" class="btn btn-default glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Bearbeiten"></a>
+                                            <a href="includes/db-delete.php?id=<?php echo $row["auftrag_id"] ; ?>" type="button" class="btn btn-default glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Löschen"></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                         </tbody>
                     </table>

@@ -186,8 +186,7 @@ require ("includes/db-order-sheet-edit-write.php");
                                         </div><!--/.row-->
                                         <div class="form-group">
                                             Zusatzaufträge<br>
-                                            <label class="sr-only" for="zusatzauftraege1">Zusatzaufträge</label>
-                                            <input type="text" class="form-control" id="zusatzauftraege1" value="<?php echo $zusatzauftraege; ?>">
+                                            <textarea class="form-control textarea-zusatzauftraege2" id="textarea-zusatzauftraege2" rows="1" placeholder="<?php echo $textarea_zusatzauftraege1; ?>"></textarea>
                                         </div><br><br>
                                     </div><!--/.col-md-12-->
                                 </fieldset>
@@ -239,19 +238,19 @@ require ("includes/db-order-sheet-edit-write.php");
                                     <div class="col-md-12 arbeiten-checkboxen">
                                         <div class="checkbox">
                                             <label class="checkbox-reihe-signierung">
-                                                <input type="checkbox" id="check-liefer-rapport" name="check-liefer-rapport" value="">
+                                                <input type="checkbox" id="check-liefer-rapport" name="check-liefer-rapport" value="" required>
                                                 Lieferschein/Rapport
                                             </label>
                                         </div>
                                         <div class="checkbox">
                                             <label class="checkbox-reihe-signierung">
-                                                <input type="checkbox" id="check-trackit-erfasst" name="check-trackit-erfasst" value="">
+                                                <input type="checkbox" id="check-trackit-erfasst" name="check-trackit-erfasst" value="" required>
                                                 Hardware in Trackit erfasst
                                             </label>
                                         </div>
                                         <div class="checkbox">
                                             <label class="checkbox-reihe-signierung">
-                                                <input type="checkbox"  id="check-system-doku-blatt" name="check-system-doku-blatt" value="">
+                                                <input type="checkbox"  id="check-system-doku-blatt" name="check-system-doku-blatt" value="" required>
                                                 Systemdoku/Dokublatt
                                             </label>
                                         </div>
@@ -260,23 +259,31 @@ require ("includes/db-order-sheet-edit-write.php");
                                         <label class="sr-only" for="datum-signierung">Datum</label>
                                         <input type="hidden" class="form-control" id="datum-signierung" name="datum-signierung" placeholder="Datum">
                                     </div><br><br>
-                                    <div class="form-group">
-                                        <select class="form-control" id="signatur-bearbeiter" name="signatur-bearbeiter">
-                                            <option class="option-title" value="">Bearbeiter</option>
-                                            <?php foreach($abfrage2 AS $row): ?>
-                                                <option><?php echo $row["username"]; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                    <textarea class="form-control" id="textarea-signatur" name="textarea-signatur" rows="1" placeholder="Info"></textarea><br><br><br>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <select class="form-control" id="signatur-bearbeiter" name="signatur-bearbeiter" required>
+                                                    <option class="option-title" value="">Bearbeiter*</option>
+                                                    <?php foreach($abfrage2 AS $row): ?>
+                                                        <option><?php echo $row["username"]; ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div><br><br>
+                                            <div class="form-group">
+                                                <label class="sr-only" for="password"></label>
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="Passwort*" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <textarea class="form-control" id="textarea-signatur" name="textarea-signatur" rows="1" placeholder="Kommentar"></textarea>
+                                        </div>
+                                    </div><br>
 
 
                                     <div class="buttons-form">
                                         <button type="submit" class="btn btn-default form-submit">Signieren</button>
                                         <button type="reset" class="btn btn-default">Reset</button>
                                     </div>
-
-
                                 </fieldset>
                             </div>
                         </div>

@@ -6,9 +6,10 @@
  * Time: 13:39
  */
 
+//Datenbankabfrage
 $abfrage  = mysqli_query($conn, "SELECT * FROM auftrag WHERE auftrag_id = $auftrag_id");
-//Datenbankabfrage Ende
 
+//Variabeln definieren
 foreach ($abfrage as $row)
 {
     $order                          = $row["order"];
@@ -30,7 +31,7 @@ foreach ($abfrage as $row)
     $vierenschutz                   = $row["vierenschutz"];
     $vorh_image                     = $row["vorh_image"];
     $image_erst                     = $row["image_erst"];
-    $zusatzauftraege                = $row["zusatzauftraege"];
+    $textarea_zusatzauftraege1      = $row["textarea_zusatzauftraege1"];
     $textarea_datenuebernahme1      = $row["textarea_datenuebernahme1"];
     $check_geraetepruefung          = $row["check_geraetepruefung"];
     $textarea_geraetepruefung       = $row["textarea_geraetepruefung"];

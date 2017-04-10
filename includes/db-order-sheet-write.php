@@ -27,7 +27,7 @@ $vierenschutz               = "";
 $vorh_image                 = "";
 $image_erst                 = "";
 $textarea_datenuebernahme1  = "";
-$zusatzauftraege            = "";
+$textarea_zusatzauftraege1  = "";
 
 
 if (isset($_POST["order"],
@@ -50,7 +50,7 @@ if (isset($_POST["order"],
             $_POST["vorh-image"],
             $_POST["image-erst"],
             $_POST["textarea-datenuebernahme1"],
-            $_POST["zusatzauftraege"])){
+            $_POST["textarea-zusatzauftraege1"])){
 
     //Variabeln definieren
     $order                      = $_POST["order"];
@@ -73,7 +73,7 @@ if (isset($_POST["order"],
     $vorh_image                 = $_POST["vorh-image"];
     $image_erst                 = $_POST["image-erst"];
     $textarea_datenuebernahme1  = $_POST["textarea-datenuebernahme1"];
-    $zusatzauftraege            = $_POST["zusatzauftraege"];
+    $textarea_zusatzauftraege1  = $_POST["textarea-zusatzauftraege1"];
 
 
     //Werte in Datenbank schreiben
@@ -98,7 +98,7 @@ if (isset($_POST["order"],
               vorh_image,
               image_erst,
               textarea_datenuebernahme1,
-              zusatzauftraege
+              textarea_zusatzauftraege1
               ) 
               VALUES(
               '$order', 
@@ -121,7 +121,7 @@ if (isset($_POST["order"],
               '$vorh_image',
               '$image_erst',
               '$textarea_datenuebernahme1',
-              '$zusatzauftraege'
+              '$textarea_zusatzauftraege1'
               )";
 
     $dateneintragen = mysqli_query($conn, $daten);

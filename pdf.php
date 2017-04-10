@@ -74,13 +74,13 @@ class PDF extends FPDF {
         $this -> Cell(9);
         $this -> Cell(62, 5, "PSS-Order Sheet", 0, 0);
 
-        // Zeilenumbruch
+
         $this->Ln(6);
         $this->SetFont("Arial","", 8);
         $this -> Cell(9);
         $this -> Cell(62, 5, utf8_decode("(PSS-Ordersheet begleitet Material, bei Auftragsende mit Rapport/Lieferschein ins Büro)"), 0, 0);
 
-        // Zeilenumbruch
+
         $this->Ln(20);
 
         $this -> SetLineWidth(0.3);
@@ -275,7 +275,7 @@ $pdf -> SetFont("Times", "B", 12);
 $pdf -> Cell(35, 10, utf8_decode("Zusatzaufträge: "), 0, 0, "L", 0, 0);
 $pdf -> SetFont("", "I");
 $pdf -> Cell(1);
-$pdf -> Cell(45, 10, utf8_decode($zusatzauftraege), 0, 0, "L", 0, 0);
+$pdf -> Cell(45, 10, utf8_decode($textarea_zusatzauftraege1), 0, 0, "L", 0, 0);
 $pdf -> Ln(15);
 
 //Seite 1 Ende-------------------------------------------------------------------------------------
@@ -398,8 +398,6 @@ $pdf -> SetFont("", "I");
 $pdf -> Cell(1);
 $pdf -> Cell(45, 10, utf8_decode($textarea_signatur), 0, 0, "L", 0, 0);
 $pdf -> Ln(20);
-
-
 
 //Seite 2 Ende-------------------------------------------------------------------------------------
 $pdf -> Output();
